@@ -65,3 +65,36 @@ h1{
 footer{
     background-color: #e1e4e1;
 }
+body{ 
+    background-color: #e9e3de;
+}
+
+header{
+    background-color: #666161;
+    border-style: solid;
+    border: 5px solid #4d4a4a;    
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #e9e3de;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+main{
+    background-color: #e9e3de;
+    
+}
+
+footer{
+    background-color: #666161;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #e9e3de;
+    border-radius: 15px;
+    text-align: center;
+    border-style: solid;
+    border: 5px solid #4d4a4a;
+}
