@@ -1,4 +1,67 @@
-header{
-    background-color: aqua;
-    font-size: 20px;
-font-family: fantasy;}
+:root{
+    --grisTexto: #333333;
+    --verdePrincipal: #4CAF50;
+    --verdeSecundario: #81C784;
+    --azulPrincipal: #1b6db1;
+}
+
+body{
+    font-family: arial;
+}
+
+header{ 
+    background-color: var(--verdePrincipal);
+    font-family: arial;
+    color: var(--grisTexto);
+    border-radius: 3em;
+    box-shadow: 5px 10px 10px grey;
+}
+
+main{
+    max-width: 1500px;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.listaContactos{
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--azulPrincipal);
+}
+
+.link:hover{
+    color: var(--grisTexto);
+    text-decoration: underline;
+}
+
+.infoInstitucional{
+    background-color:#e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    margin-top: 50px;
+    text-align: justify;
+    padding: 5px 10px 5px 10px;
+
+}
+
+#valores{
+    display: block;
+    max-width: 25em;
+    margin: 50px auto;
+    border: 3px solid var(--verdePrincipal);
+}
+
+#valores>h2{
+    text-align: center;
+}
+
+footer{
+    background-color: #e1e4e1;
+}
