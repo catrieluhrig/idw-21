@@ -55,6 +55,50 @@ header{
 }
 /* Institucional */
 
+/*Contactos*/
+.subtituloContactos{
+    text-align: center;
+}
+
+.contactos{
+    background-color: #e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    text-align: center;
+    max-width: 40em;
+    margin: auto;
+    padding: 20px;
+}
+
+.contacto-item{
+    display: flex; /*Para que los íconos esten en la misma línea que el párrafo*/
+    align-items: center;
+    gap: 10px
+}
+
+#maps{
+    text-align: center;
+}
+
+#maps>iframe{
+    width: 20em;
+    height: 20em;
+}
+
+.botones{
+    width: 100px;
+    text-align: center;
+    margin: 2em auto 1em auto;
+}
+
+.botones>input{
+    width: 110px;
+    height: 25px;
+    background-color: var(--verdeSecundario);
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+/*Contactos*/
 footer{
     background-color: var(--grisSecundario);
     font-size: 20px;
