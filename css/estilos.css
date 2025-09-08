@@ -1,26 +1,23 @@
 :root{
-    --grisTexto: #333333;
     --verdePrincipal: #4CAF50;
     --verdeSecundario: #81C784;
-    --azulPrincipal: #1b6db1;
+    --blancoPrincipal: #e9e3de;
+    --grisPrincipal: #4d4a4a; 
+    --grisSecundario: #666161;
 }
 
 body{
     font-family: arial;
-    background-color: #e9e3de;
-}
-
-main{
-    background-color: #e9e3de;
+    background-color: var(--blancoPrincipal);
 }
 
 header{
-    background-color: #666161;
+    background-color: var(--grisSecundario);
     border-style: solid;
-    border: 5px solid #4d4a4a;    
+    border: 5px solid var(--grisPrincipal);
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    color: #e9e3de;
+    color: var(--blancoPrincipal);
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -43,7 +40,7 @@ header{
 }
 
 .link:hover{
-    color: var(--grisTexto);
+    color: var(--grisPrincipal);
     text-decoration: underline;
 }
 
@@ -59,12 +56,12 @@ header{
 /* Institucional */
 
 footer{
-    background-color: #666161;
+    background-color: var(--grisSecundario);
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    color: #e9e3de;
+    color: var(--blancoPrincipal);
     border-radius: 15px;
     text-align: center;
     border-style: solid;
-    border: 5px solid #4d4a4a;
+    border: 5px solid var(--grisPrincipal);
 }
