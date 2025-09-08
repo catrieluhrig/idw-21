@@ -7,65 +7,10 @@
 
 body{
     font-family: arial;
-}
-
-header{ 
-    background-color: var(--verdePrincipal);
-    font-family: arial;
-    color: var(--grisTexto);
-    border-radius: 3em;
-    box-shadow: 5px 10px 10px grey;
+    background-color: #e9e3de;
 }
 
 main{
-    max-width: 1500px;
-    margin: auto;
-}
-
-h1{
-    text-align: center;
-}
-
-.listaContactos{
-    padding: 0;
-    text-align: center;
-    list-style: none;
-}
-
-.link{
-    text-decoration: none;
-    color: var(--azulPrincipal);
-}
-
-.link:hover{
-    color: var(--grisTexto);
-    text-decoration: underline;
-}
-
-.infoInstitucional{
-    background-color:#e1e4e1;
-    box-shadow: 1px 2px 5px grey;
-    margin-top: 50px;
-    text-align: justify;
-    padding: 5px 10px 5px 10px;
-
-}
-
-#valores{
-    display: block;
-    max-width: 25em;
-    margin: 50px auto;
-    border: 3px solid var(--verdePrincipal);
-}
-
-#valores>h2{
-    text-align: center;
-}
-
-footer{
-    background-color: #e1e4e1;
-}
-body{ 
     background-color: #e9e3de;
 }
 
@@ -80,13 +25,38 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-main{
-    background-color: #e9e3de;
-    
+/* Institucional */
+.infoInstitucional{
+    max-width: 90em;
+    background-color:#e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    margin: 50px auto;
+    text-align: justify;
+    padding: 5px 10px 5px 10px;
 }
+
+.link{
+    text-decoration: none;
+    color: var(--verdePrincipal);
+}
+
+.link:hover{
+    color: var(--grisTexto);
+    text-decoration: underline;
+}
+
+#valores{
+    max-width: 25em;
+    margin: 50px auto;
+    border: 3px solid var(--verdePrincipal);
+}
+
+#valores>h2{
+    text-align: center;
+}
+/* Institucional */
 
 footer{
     background-color: #666161;
