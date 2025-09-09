@@ -1,34 +1,41 @@
+:root{
+    --verdePrincipal: #4CAF50;
+    --verdeSecundario: #81C784;
+    --blancoPrincipal: #e9e3de;
+    --grisPrincipal: #4d4a4a; 
+    --grisSecundario: #666161;
+}
 
-/* Aplico la fuente a todo el sitio */
-body {
+body{
     font-family: fantasy;
-    background-color: #f4f4f4; /* opcional, para que el fondo no quede blanco plano */
+    background-color: var(--blancoPrincipal); /* opcional, para que el fondo no quede blanco plano */
     color: #333;
-    margin: 0;
     line-height: 1.5;
 }
 
 header{
-    background-color: #666161;
+    background-color: var(--grisSecundario);
     border-style: solid;
-    border: 5px solid #4d4a4a;    
+    border: 5px solid var(--grisPrincipal);
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    color: #e9e3de;
+    color: var(--blancoPrincipal);
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Hover en tarjetas (para que se levanten un poco con el mouse) */
-.card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Links del menú: se iluminan cuando pasás el mouse */
+nav a {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #e1e4e1;
+    text-decoration: none;
 }
 
-.card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+nav a:hover {
+    background-color: #0077cc;
 }
 
 /* Menú responsive: si la pantalla es chica, los links se acomodan en columna */
@@ -40,26 +47,130 @@ header{
     }
 }
 
-/* Links del menú: se iluminan cuando pasás el mouse */
-nav a {
-    padding: 5px 10px;
-    border-radius: 4px;
-    color: black;
-    text-decoration: none;
+/*Index*/
+.eslogan{
+    text-align: center;
 }
 
-nav a:hover {
-    background-color: #0077cc;
-    color: #fff;
+.grid-profesionales{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 15em 15em 15em 15em 15em;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 1em
 }
+
+/*Espacios vacíos en la primera fila del grid para poder alinear los doctores de la fila de abajo entre medio de los doctores de arriba*/
+#susana{
+    grid-column: 1
+}
+
+#francella{
+    grid-column: 3
+}
+
+#mirtha{
+    grid-column: 5
+}
+
+#gardel{
+    grid-column: 2
+}
+
+#messi{
+    grid-column: 4
+}
+
+.card-container{
+    padding-top: 10px;
+    background-color: #e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+}
+
+/* Hover en tarjetas (para que se levanten un poco con el mouse) */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+/*Index*/
+
+/* Institucional */
+.infoInstitucional{
+    max-width: 90em;
+    background-color:#e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    margin: 50px auto;
+    text-align: justify;
+    padding: 5px 10px 5px 10px;
+}
+
+#valores{
+    max-width: 25em;
+    margin: 50px auto;
+    border: 3px solid var(--verdePrincipal);
+}
+
+#valores>h2{
+    text-align: center;
+}
+/* Institucional */
+
+/*Contactos*/
+.subtituloContactos{
+    text-align: center;
+}
+
+.contactos-container{
+    background-color: #e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    text-align: center;
+    max-width: 40em;
+    margin: auto;
+    padding: 20px;
+}
+
+.contacto-item{
+    display: flex; /*Para que los íconos esten en la misma línea que el párrafo*/
+    align-items: center;
+    gap: 10px
+}
+
+#maps{
+    text-align: center;
+}
+
+#maps>iframe{
+    width: 20em;
+    height: 20em;
+}
+
+.botones{
+    width: 100px;
+    text-align: center;
+    margin: 2em auto 1em auto;
+}
+
+.botones>input{
+    width: 110px;
+    height: 25px;
+    background-color: var(--verdeSecundario);
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+/*Contactos*/
 
 footer{
-    background-color: #666161;
+    background-color: var(--grisSecundario);
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    color: #e9e3de;
+    color: var(--blancoPrincipal);
     border-radius: 15px;
     text-align: center;
     border-style: solid;
-    border: 5px solid #4d4a4a;
+    border: 5px solid var(--grisPrincipal);
 }
