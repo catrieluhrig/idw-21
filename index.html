@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Centro Médico IDW S.A.</title>
-    <!-- Vinculamos el CSS, ojo con la barra normal "/" -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -21,49 +20,50 @@
     </header>
     
     <main>
-        <section>
-            <h2>Cuidamos tu salud, como cuidaríamos a nuestra familia.</h2>   
-            <h2>Tu bienestar, nuestra prioridad.</h2>
+        <h2 class="eslogan">Cuidamos tu salud, como cuidaríamos a nuestra familia.</h2>   
+            <h2 class="eslogan"><u>Tu bienestar, nuestra prioridad.</u></h2>
+            <h2 class="eslogan">Nuestros Profesionales:</h2>
 
-            <h2>Nuestros Profesionales:</h2>
-
-            <div>
-                <div>
+        <section class="profesionales">
+            
+            <div class="grid-profesionales">
+                <div class="card-container" id="susana">
+                    <img src="img/susana.jpg" alt="Susana" class="card" style="width:150px; height:150px; border-radius:20%">
                     <h3>Dra. Susana Giménez</h3>
-                    <img src="img/susana.jpg" alt="Susana" style="width:150px; height:150px; border-radius:20%">
                     <p>Especialidad: Cardióloga</p>
                     <p>Obras Sociales: OSER - AMUPRO - MEDICUS</p>
                 </div>
-                <div>
-                    <img src="img/francella.jpg" alt="Francella" style="width:150px; height:150px; border-radius:20%">
+                <div class="card-container" id="francella">
+                    <img src="img/francella.jpg" alt="Francella" class="card" style="width:150px; height:150px; border-radius:20%">
                     <h3>Dr. Guillermo Francella</h3>
                     <p>Especialidad: Neumonólogo</p>
                     <p>Obras Sociales: OSUNER - OSAPMER - Jerárquicos Salud</p>
                 </div>
-                <div>
-                    <img src="img/mirta.jpg" alt="Mirta" style="width:150px; height:150px; border-radius:20%">
+                <div class="card-container" id="mirtha">
+                    <img src="img/mirta.jpg" alt="Mirtha" class="card" style="width:150px; height:150px; border-radius:20%">
                     <h3>Dra. Mirtha Legrand</h3>
                     <p>Especialidad: Radióloga</p>
                     <p>Obras Sociales: Sancor Salud - OSDE - IOSPER</p>
                 </div>
-                <div>
-                    <img src="img/gardel.jpg" alt="Gardel" style="width:150px; height:150px; border-radius:20%">
+                <div class="card-container" id="gardel">
+                    <img src="img/gardel.jpg" alt="Gardel" class="card" style="width:150px; height:150px; border-radius:20%">
                     <h3>Dr. Carlos Gardel</h3>
                     <p>Especialidad: Dermatólogo</p>
                     <p>Obras Sociales: OSFATUN - AMUR - Federada Salud</p>
                 </div>
-                <div>
-                    <img src="img/messi.jpg" alt="Messi" style="width:150px; height:150px; border-radius:20%">
+                <div class="card-container" id="messi">
+                    <img src="img/messi.jpg" alt="Messi"  class="card" style="width:150px; height:150px; border-radius:20%">
                     <h3>Dr. Lionel Messi</h3>
                     <p>Especialidad: Endocrinólogo</p>
                     <p>Obras Sociales: Cen Salud - SALUTE - BIENESTAR</p>
                 </div>
             </div>
+
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Centro Médico IDW</p>
-        <p>Integrantes del grupo: Apellido, Nombre; Apellido, Nombre; Apellido, Nombre.</p>
+        <p>Integrantes del grupo: Mateo Fernandez, Tobias Heynen, Rodrigo Benitez, Flavia Morabito, Sergio Oscar Sieza, Catriel Uhrig</p>
     </footer>
 
 </body>
