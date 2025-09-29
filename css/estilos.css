@@ -52,38 +52,7 @@ nav a:hover {
     text-align: center;
 }
 
-.grid-profesionales{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 15em 15em 15em 15em 15em;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 1em
-}
-
-/*Espacios vacíos en la primera fila del grid para poder alinear los doctores de la fila de abajo entre medio de los doctores de arriba*/
-#susana{
-    grid-column: 1
-}
-
-#francella{
-    grid-column: 3
-}
-
-#mirtha{
-    grid-column: 5
-}
-
-#gardel{
-    grid-column: 2
-}
-
-#messi{
-    grid-column: 4
-}
-
 .card-container{
-    padding-top: 10px;
     background-color: #e1e4e1;
     box-shadow: 1px 2px 5px grey;
 }
@@ -91,6 +60,9 @@ nav a:hover {
 /* Hover en tarjetas (para que se levanten un poco con el mouse) */
 .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width:150px; 
+    height:150px; 
+    border-radius:20%"
 }
 
 .card:hover {
