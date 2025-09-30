@@ -14,13 +14,28 @@
 <body>
 
     <header class="mt-2">
-        <h1> Centro Médico IDW S.A.</h1>
-        <nav>
-            <ul>
-                <li> <a href="institucional.html"> Institucional</a></li>
-                <li> <a href="contacto.html"> Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="container-fluid">
+            <h1 class="text-center"> Centro Médico IDW S.A.</h1>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item me-2">
+                            <a class="nav-link active link-activo" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="institucional.html">Institucional</a>
+                        </li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contactos</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main class="m-5">
@@ -31,8 +46,8 @@
         <section class="profesionales">
 
             <div class="container text-center">
-                <div class="row">
-                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2">
+                <div class="row column-gap-1">
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
                         <img src="img/susana.jpg" alt="Susana" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
                         <div class="card-body">
                             <h3 class="card-title">Dra. Susana Giménez</h3>
@@ -40,15 +55,16 @@
                             <p>Obras Sociales: OSER - AMUPRO - MEDICUS</p>
                         </div>
                     </div>
-                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2">
-                        <img src="img/francella.jpg" alt="Francella" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/francella.jpg" alt="Francella"
+                            class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
                         <div class="card-body">
                             <h3 class="card-title">Dr. Guillermo Francella</h3>
                             <p>Especialidad: Neumonólogo</p>
                             <p>Obras Sociales: OSUNER - OSAPMER - Jerárquicos Salud</p>
                         </div>
                     </div>
-                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2">
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
                         <img src="img/mirta.jpg" alt="Mirtha" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
                         <div class="card-body">
                             <h3 class="card-title">Dra. Mirtha Legrand</h3>
@@ -57,8 +73,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="card-container card col-12 col-md-6 col-lg-4 mx-auto mt-5 p-2">
+                <div class="row column-gap-1">
+                    <div class="card-container card col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
                         <img src="img/gardel.jpg" alt="Gardel" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
                         <div class="card-body">
                             <h3 class="card-title">Dr. Carlos Gardel</h3>
@@ -66,7 +82,7 @@
                             <p>Obras Sociales: OSFATUN - AMUR - Federada Salud</p>
                         </div>
                     </div>
-                    <div class="card-container card col-12 col-md-6 col-lg-4 mx-auto mt-5 p-2">
+                    <div class="card-container card col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
                         <img src="img/messi.jpg" alt="Messi" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
                         <div class="card-body">
                             <h3 class="card-title">Dr. Lionel Messi</h3>

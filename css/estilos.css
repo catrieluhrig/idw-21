@@ -20,30 +20,26 @@ header{
     font-family: 'Times New Roman', Times, serif;
     color: var(--blancoPrincipal);
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Links del menú: se iluminan cuando pasás el mouse */
-nav a {
+nav a{
     padding: 5px 10px;
     border-radius: 4px;
-    color: #e1e4e1;
+    color: #e1e4e1 !important;
     text-decoration: none;
 }
 
+/* Links del menú: se iluminan cuando pasás el mouse */
 nav a:hover {
-    background-color: #0077cc;
+    background-color: var(--verdePrincipal);
 }
 
-/* Menú responsive: si la pantalla es chica, los links se acomodan en columna */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+.link-activo{
+    background-color: var(--verdePrincipal);
+}
+
+nav button{
+    background-color: var(--verdePrincipal) !important;
 }
 
 /*Index*/
