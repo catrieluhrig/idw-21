@@ -23,7 +23,6 @@ header{
 }
 
 nav a{
-    padding: 5px 10px;
     border-radius: 4px;
     color: #e1e4e1 !important;
     text-decoration: none;
@@ -42,7 +41,7 @@ nav button{
     background-color: var(--verdePrincipal) !important;
 }
 
-/*Index*/
+/* Index */
 .eslogan{
     text-align: center;
 }
@@ -58,72 +57,29 @@ nav button{
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/*Index*/
+/* Index */
 
 /* Institucional */
 .infoInstitucional{
-    max-width: 90em;
     background-color:#e1e4e1;
     box-shadow: 1px 2px 5px grey;
-    margin: 50px auto;
     text-align: justify;
-    padding: 5px 10px 5px 10px;
 }
 
 #valores{
-    max-width: 25em;
-    margin: 50px auto;
     border: 3px solid var(--verdePrincipal);
-}
-
-#valores>h2{
-    text-align: center;
 }
 /* Institucional */
 
-/*Contactos*/
-.subtituloContactos{
-    text-align: center;
-}
-
-.contactos-container{
-    background-color: #e1e4e1;
-    box-shadow: 1px 2px 5px grey;
-    text-align: center;
-    max-width: 40em;
-    margin: auto;
-    padding: 20px;
-}
-
-.contacto-item{
-    display: flex; /*Para que los íconos esten en la misma línea que el párrafo*/
-    align-items: center;
-    gap: 10px
-}
-
+/* Contactos */
 #maps{
-    text-align: center;
-}
-
-#maps>iframe{
-    width: 20em;
-    height: 20em;
-}
-
-.botones{
-    width: 100px;
-    text-align: center;
-    margin: 2em auto 1em auto;
+    height: 15em
 }
 
 .botones>input{
-    width: 110px;
-    height: 25px;
     background-color: var(--verdeSecundario);
-    margin-bottom: 20px;
-    border-radius: 15px;
 }
-/*Contactos*/
+/* Contactos */
 
 footer{
     background-color: var(--grisSecundario);
@@ -131,7 +87,6 @@ footer{
     font-family: 'Times New Roman', Times, serif;
     color: var(--blancoPrincipal);
     border-radius: 15px;
-    text-align: center;
     border-style: solid;
     border: 5px solid var(--grisPrincipal);
 }
