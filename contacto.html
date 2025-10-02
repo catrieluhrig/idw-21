@@ -24,12 +24,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li class="nav-item me-2">
-              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+              <a class="nav-link active" href="index.html">Inicio</a>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="institucional.html">Institucional</a>
             </li class="nav-item">
-            <a class="nav-link link-activo" href="contacto.html">Contactos</a>
+            <a class="nav-link link-activo" aria-current="page" href="contacto.html">Contactos</a>
             </li>
           </ul>
         </div>
@@ -39,42 +39,68 @@
 
   <main>
 
-    <h2 class="subtituloContactos">Contáctenos</h2>
-    <section class="contactos-container">
-      <div class="contacto-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <p><strong>Dirección:</strong> Calle Falsa 123, Buenos Aires, Argentina</p>
+    <h2 class="text-center my-5">Contáctenos</h2>
+
+    <section class="row g-5 mb-4 mx-auto">
+      <!-- Card 1 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center p-2 card-container">
+          <div class="card-body">
+            <i class="fa-solid fa-location-dot fa-2x mb-2"></i>
+            <h5 class="card-title">Dirección</h5>
+            <p class="card-text">Calle Falsa 123, Buenos Aires, Argentina</p>
+          </div>
+        </div>
       </div>
 
-      <div class="contacto-item">
-        <i class="fa-solid fa-phone"></i>
-        <p><strong>Callcenter:</strong> +54 11 4232-7878</p>
+      <!-- Card 2 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center p-2 card-container">
+          <div class="card-body">
+            <i class="fa-solid fa-phone fa-2x mb-2"></i>
+            <h5 class="card-title">Callcenter</h5>
+            <p class="card-text">+54 11 4232-7878</p>
+          </div>
+        </div>
       </div>
 
-      <div class="contacto-item">
-        <i class="fa-solid fa-square-phone"></i>
-        <p><strong>WhatsApp (solo para turnos):</strong> +54 11 2424-2424</p>
+      <!-- Card 3 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center p-2 card-container">
+          <div class="card-body">
+            <i class="fa-solid fa-square-phone fa-2x mb-2"></i>
+            <h5 class="card-title">WhatsApp</h5>
+            <p class="card-text">+54 11 2424-2424 (solo turnos)</p>
+          </div>
+        </div>
       </div>
 
-      <div class="contacto-item">
-        <i class="fa-solid fa-envelope" class="icono"></i>
-        <p><strong>Email:</strong> contacto@centromedicoidw.com</p>
+      <!-- Card 4 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center p-2 card-container ">
+          <div class="card-body">
+            <i class="fa-solid fa-envelope fa-2x mb-2"></i>
+            <h5 class="card-title">Email</h5>
+            <p class="card-text">contacto@centromedicoidw.com</p>
+          </div>
+        </div>
       </div>
-
     </section>
-    <section id="maps">
+
+    <section class="text-center my-5">
       <h2>¿Dónde estamos?</h2>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019716527607!2d-122.42100868468132!3d37.774929779759906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808a063b18e9%3A0x9462a6b5a3ee847e!2sSan%20Francisco%2C%20CA%2C%20EE.%20UU.!5e0!3m2!1ses!2s!4v1631800541470!5m2!1ses!2s"
-        allowfullscreen="" loading="lazy"></iframe>
+        allowfullscreen="" loading="lazy" id="maps"></iframe>
     </section>
 
-    <section class="botones">
-      <input type="button" value="Solicitar Turno">
-      <input type="button" value="Emergencias">
+    <section class="botones mx-auto text-center mb-5">
+      <button type="button" class="btn btn-success mb-2">Solicitar Turno</button>
+      <br>
+      <button type="button" class="btn btn-danger">Emergencias</button>
     </section>
   </main>
-  <footer>
+  <footer class="text-center">
     <p>&copy; 2025 Centro Médico IDW</p>
   </footer>
 </body>
