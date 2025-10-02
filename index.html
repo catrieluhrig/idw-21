@@ -1,61 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Centro Médico IDW S.A.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
 
-    <header>
-        <h1> Centro Médico IDW S.A.</h1>
-            <nav>
-                <ul>
-                    <li> <a href="institucional.html"> Institucional</a></li>
-                    <li> <a href="contacto.html"> Contacto</a></li>
-                </ul>
+    <header class="mt-2">
+        <div class="container-fluid">
+            <h1 class="text-center"> Centro Médico IDW S.A.</h1>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item me-2">
+                            <a class="nav-link active link-activo" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="institucional.html">Institucional</a>
+                        </li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contactos</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
+        </div>
     </header>
-    
-    <main>
-        <h2 class="eslogan">Cuidamos tu salud, como cuidaríamos a nuestra familia.</h2>   
-            <h2 class="eslogan"><u>Tu bienestar, nuestra prioridad.</u></h2>
-            <h2 class="eslogan">Nuestros Profesionales:</h2>
+
+    <main class="m-5">
+        <h2 class="eslogan">Cuidamos tu salud, como cuidaríamos a nuestra familia.</h2>
+        <h2 class="eslogan"><u>Tu bienestar, nuestra prioridad.</u></h2>
+        <br>
+        <h2 class="eslogan">Nuestros Profesionales:</h2>
 
         <section class="profesionales">
-            
-            <div class="grid-profesionales">
-                <div class="card-container" id="susana">
-                    <img src="img/susana.jpg" alt="Susana" class="card" style="width:150px; height:150px; border-radius:20%">
-                    <h3>Dra. Susana Giménez</h3>
-                    <p>Especialidad: Cardióloga</p>
-                    <p>Obras Sociales: OSER - AMUPRO - MEDICUS</p>
+
+            <div class="container text-center">
+                <div class="row column-gap-1">
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/susana.jpg" alt="Susana" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title">Dra. Susana Giménez</h3>
+                            <p>Especialidad: Cardióloga</p>
+                            <p>Obras Sociales: OSER - AMUPRO - MEDICUS</p>
+                        </div>
+                    </div>
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/francella.jpg" alt="Francella"
+                            class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title">Dr. Guillermo Francella</h3>
+                            <p>Especialidad: Neumonólogo</p>
+                            <p>Obras Sociales: OSUNER - OSAPMER - Jerárquicos Salud</p>
+                        </div>
+                    </div>
+                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/mirta.jpg" alt="Mirtha" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title">Dra. Mirtha Legrand</h3>
+                            <p>Especialidad: Radióloga</p>
+                            <p>Obras Sociales: Sancor Salud - OSDE - IOSPER</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-container" id="francella">
-                    <img src="img/francella.jpg" alt="Francella" class="card" style="width:150px; height:150px; border-radius:20%">
-                    <h3>Dr. Guillermo Francella</h3>
-                    <p>Especialidad: Neumonólogo</p>
-                    <p>Obras Sociales: OSUNER - OSAPMER - Jerárquicos Salud</p>
-                </div>
-                <div class="card-container" id="mirtha">
-                    <img src="img/mirta.jpg" alt="Mirtha" class="card" style="width:150px; height:150px; border-radius:20%">
-                    <h3>Dra. Mirtha Legrand</h3>
-                    <p>Especialidad: Radióloga</p>
-                    <p>Obras Sociales: Sancor Salud - OSDE - IOSPER</p>
-                </div>
-                <div class="card-container" id="gardel">
-                    <img src="img/gardel.jpg" alt="Gardel" class="card" style="width:150px; height:150px; border-radius:20%">
-                    <h3>Dr. Carlos Gardel</h3>
-                    <p>Especialidad: Dermatólogo</p>
-                    <p>Obras Sociales: OSFATUN - AMUR - Federada Salud</p>
-                </div>
-                <div class="card-container" id="messi">
-                    <img src="img/messi.jpg" alt="Messi"  class="card" style="width:150px; height:150px; border-radius:20%">
-                    <h3>Dr. Lionel Messi</h3>
-                    <p>Especialidad: Endocrinólogo</p>
-                    <p>Obras Sociales: Cen Salud - SALUTE - BIENESTAR</p>
+                <div class="row column-gap-1">
+                    <div class="card-container card col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/gardel.jpg" alt="Gardel" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title">Dr. Carlos Gardel</h3>
+                            <p>Especialidad: Dermatólogo</p>
+                            <p>Obras Sociales: OSFATUN - AMUR - Federada Salud</p>
+                        </div>
+                    </div>
+                    <div class="card-container card col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
+                        <img src="img/messi.jpg" alt="Messi" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title">Dr. Lionel Messi</h3>
+                            <p>Especialidad: Endocrinólogo</p>
+                            <p>Obras Sociales: Cen Salud - SALUTE - BIENESTAR</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -63,8 +98,10 @@
     </main>
     <footer>
         <p>&copy; 2025 Centro Médico IDW</p>
-        <p>Integrantes del grupo: Mateo Fernandez, Tobias Heynen, Rodrigo Benitez, Flavia Morabito, Sergio Oscar Sieza, Catriel Uhrig</p>
+        <p>Integrantes del grupo: Mateo Fernandez, Tobias Heynen, Rodrigo Benitez, Flavia Morabito, Sergio Oscar Sieza,
+            Catriel Uhrig</p>
     </footer>
 
 </body>
+
 </html>

@@ -10,7 +10,6 @@ body{
     font-family: fantasy;
     background-color: var(--blancoPrincipal); /* opcional, para que el fondo no quede blanco plano */
     color: #333;
-    line-height: 1.5;
 }
 
 header{
@@ -21,30 +20,26 @@ header{
     font-family: 'Times New Roman', Times, serif;
     color: var(--blancoPrincipal);
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Links del menú: se iluminan cuando pasás el mouse */
-nav a {
+nav a{
     padding: 5px 10px;
     border-radius: 4px;
-    color: #e1e4e1;
+    color: #e1e4e1 !important;
     text-decoration: none;
 }
 
+/* Links del menú: se iluminan cuando pasás el mouse */
 nav a:hover {
-    background-color: #0077cc;
+    background-color: var(--verdePrincipal);
 }
 
-/* Menú responsive: si la pantalla es chica, los links se acomodan en columna */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+.link-activo{
+    background-color: var(--verdePrincipal);
+}
+
+nav button{
+    background-color: var(--verdePrincipal) !important;
 }
 
 /*Index*/
@@ -52,51 +47,17 @@ nav a:hover {
     text-align: center;
 }
 
-.grid-profesionales{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 15em 15em 15em 15em 15em;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 1em
-}
-
-/*Espacios vacíos en la primera fila del grid para poder alinear los doctores de la fila de abajo entre medio de los doctores de arriba*/
-#susana{
-    grid-column: 1
-}
-
-#francella{
-    grid-column: 3
-}
-
-#mirtha{
-    grid-column: 5
-}
-
-#gardel{
-    grid-column: 2
-}
-
-#messi{
-    grid-column: 4
-}
-
 .card-container{
-    padding-top: 10px;
     background-color: #e1e4e1;
     box-shadow: 1px 2px 5px grey;
-}
-
-/* Hover en tarjetas (para que se levanten un poco con el mouse) */
-.card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
+.card-container:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+
 /*Index*/
 
 /* Institucional */
