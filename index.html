@@ -55,13 +55,8 @@
         <section class="profesionales">
             <div class="container text-center">
                 <div id="listaMedicos" class="row column-gap-1">
-                    <div class="card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3">
-                        <img src="img/susana.jpg" alt="Susana" class="card-img-top w-50 h-50 rounded-3 mb-3 mx-auto">
-                        <div class="card-body">
-                            <h3 class="card-title">Dra. Susana Giménez</h3>
-                            <p>Especialidad: Cardióloga</p>
-                            <p>Obras Sociales: OSER - AMUPRO - MEDICUS</p>
-                        </div>
+
+                    
                 </div>
             </div>
         </section>
@@ -71,6 +66,7 @@
         <p>Integrantes del grupo: Mateo Fernandez, Tobias Heynen, Rodrigo Benitez, Flavia Morabito, Sergio Oscar Sieza,
             Catriel Uhrig</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/medicos.js"></script>
     <script>
         const adminLink = document.getElementById('administracionLink');
@@ -94,40 +90,8 @@
             window.location.reload();
         });
     </script>
-
     <script>
-    const contenedorMedicos = document.getElementById('listaMedicos');
-    function cargarMedicosPublicos() {
-        const medicos = JSON.parse(localStorage.getItem('medicos')) || [];
-        contenedorMedicos.innerHTML = '';
-        if (medicos.length === 0) {
-            contenedorMedicos.innerHTML = `
-                <p class="text-muted mt-4">Aún no hay médicos cargados.</p>
-            `;
-            return;
-        }
-
-        medicos.forEach(medico => {
-            const col = document.createElement('div');
-            col.className = 'card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3';
-
-            col.innerHTML = `
-                <div class="card h-100 p-2">
-                    <img src="${medico.imagen || 'img/equipo-medico.png'}" 
-                         alt="Foto de ${medico.nombre}" 
-                         class="card-img-top w-75 h-75 rounded-3 mb-3 mx-auto"
-                         style="object-fit: cover; max-height: 220px;">
-                    <div class="card-body">
-                        <h3 class="card-title">${medico.nombre}</h3>
-                        <p>Especialidad: ${medico.especialidad}</p>
-                        <p>Obras Sociales: ${medico.obrasSociales}</p>
-                    </div>
-                </div>
-            `;
-            contenedorMedicos.appendChild(col);
-        });
-    }
-    cargarMedicosPublicos();
-</script>
+        window.renderizarCards();
+    </script>
 </body>
 </html>
