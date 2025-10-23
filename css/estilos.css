@@ -49,9 +49,9 @@ nav button{
 }
 
 .card-container{
-    background-color: transparent; 
-    border: none;
-    box-shadow: none; 
+    background-color: #e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-container:hover {
