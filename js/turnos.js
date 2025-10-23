@@ -2,7 +2,9 @@ const botonTurnos = document.getElementById("botonTurnos");
 const dropdown = document.getElementById("medicos-dropdown");
 const turnoSubmit = document.getElementById("turno-submit");
 const success = document.getElementById("success")
+const tablaTurnosBody = document.getElementById("#tablaTurnos tbody")
 let medicos = JSON.parse(localStorage.getItem('medicos')) || [];
+const turnosExistentes = JSON.parse(localStorage.getItem("turnos")) || [];
 
 function nombres(){
     medicos.forEach((medico) => {
@@ -28,12 +30,31 @@ turnoSubmit.addEventListener("submit", e => {
         turnoEmail,
     }
 
-    const turnosExistentes = JSON.parse(localStorage.getItem("turnos")) || [];
+    
     turnosExistentes.push(turnoData);
     localStorage.setItem("turnos", JSON.stringify(turnosExistentes))
 
     success.innerHTML = `Turno guardado con exito: ${turnoMedico}, ${turnoFechaHora}, ${turnoNombre}, ${turnoEmail}`
 }
 )
+
+if(turnosExistentes){
+    turnosExistentes.forEach((turno, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>
+        ${turno.turnoMedico}
+        </td>
+        <td>
+        ${turno.turnoFechaHora}
+        </td>
+        <td>
+        ${turno.turnoNombre}
+        </td>
+        <td>
+        ${turno.turnoEmail}
+        </td>`
+        tablaTurnos.appendChild(row)
+    })
+}
 
 nombres()

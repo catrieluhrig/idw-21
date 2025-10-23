@@ -43,7 +43,9 @@
             </nav>
         </div>
     </header>
-    <main>
+
+    <main class="container">
+
         <h1 class="text-center my-5">Solicita tu turno</h1>
         <form class="mx-auto text-center mb-5" id="turno-submit">
             <p class="text-center" id="turno-medico">Selección de médico: </p>
@@ -59,11 +61,31 @@
             <br>
             <button type="submit" class="btn btn-success mt-5">Pedir turno</button>
         </form>
+
         <p id="success" class="text-center my-5"></p>
+
+        <div class="table-responsive w-50 mx-auto">
+            <table class="table-striped table" id="tablaTurnos">
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Fecha y Hora</th>
+                        <th>Nombre y Apellido</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
     </main>
+
     <footer class="text-center">
     <p>&copy; 2025 Centro Médico IDW</p>
     </footer>
+
     <script>
         const adminLink = document.getElementById('administracionLink');
         const loginBtn = document.getElementById('loginBtn');

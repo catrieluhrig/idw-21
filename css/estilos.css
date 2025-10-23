@@ -110,6 +110,10 @@ footer{
     padding: 10px;
 }
 
+tr{
+    background-color: var(--verdeSecundario)
+}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -151,16 +155,6 @@ footer{
     background-color: transparent;
     border: none;
     box-shadow: none 
-}
-
-
-.card-body {
-    background-color: transparent 
-}
-
-
-.card img {
-    border-radius: 10px;
 }
 
 .card h3,
