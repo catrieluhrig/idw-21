@@ -8,3 +8,7 @@ Rodrigo Benitez
 Flavia Morabito
 Sergio Oscar Sieza
 Catriel Uhrig
+
+Credenciales para el login como administrador:
+user: "admin"
+password: "1234"
