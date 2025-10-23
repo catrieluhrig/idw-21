@@ -91,6 +91,11 @@ nav button{
 .botones>input{
     background-color: var(--verdeSecundario);
 }
+
+#botonTurnos a{
+    text-decoration: none;
+    color: #e1e4e1 !important;
+}
 /* Contactos */
 
 footer{
@@ -103,6 +108,10 @@ footer{
     border: 5px solid var(--grisPrincipal);
     text-align: center;
     padding: 10px;
+}
+
+tr{
+    background-color: var(--verdeSecundario)
 }
 
 /* Navbar */
@@ -146,16 +155,6 @@ footer{
     background-color: transparent;
     border: none;
     box-shadow: none 
-}
-
-
-.card-body {
-    background-color: transparent 
-}
-
-
-.card img {
-    border-radius: 10px;
 }
 
 .card h3,
