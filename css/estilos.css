@@ -91,6 +91,11 @@ nav button{
 .botones>input{
     background-color: var(--verdeSecundario);
 }
+
+#botonTurnos a{
+    text-decoration: none;
+    color: #e1e4e1 !important;
+}
 /* Contactos */
 
 footer{
