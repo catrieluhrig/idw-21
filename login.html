@@ -30,26 +30,6 @@
         </div>
     </div>
 
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const errorMsg = document.getElementById('errorMsg');
-
-        // Credenciales
-        const USUARIO = "admin";
-        const PASSWORD = "1234";
-
-        loginForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const user = document.getElementById('usuario').value;
-            const pass = document.getElementById('password').value;
-
-            if (user === USUARIO && pass === PASSWORD) {
-                localStorage.setItem('loginActivo', 'true');
-                window.location.href = "administracion.html";
-            } else {
-                errorMsg.style.display = 'block';
-            }
-        });
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>
