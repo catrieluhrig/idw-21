@@ -161,3 +161,31 @@ tr{
 .card p {
     color: #333; 
 }
+
+/*Para el icono del ojo mostrar/ocultar contraseña en usuarios.js*/
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.password-field {
+  border: none;
+  background: transparent;
+  text-align: center;
+  width: 120px;
+  font-family: monospace;
+  color: #333;
+}
+
+.btn-eye {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--grisPrincipal);
+}
+
+.btn-eye:hover {
+  color: var(--verdePrincipal);
+}
