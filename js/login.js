@@ -1,25 +1,34 @@
-const user = document.getElementById('usuario').value;
-const pass = document.getElementById('password').value;
 const loginForm = document.getElementById('loginForm');
 const error = document.getElementById('errorMsg');
 
-async function login(user, pass){
-    const res = await fetch("https://dummyjson.com/auth/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({user, pass})
-    });
-
-    if (res.ok) {
-        localStorage.setItem('loginActivo', 'true');
-        window.href.location = "administracion.html";
+async function login(username, password){
+    try{
+        const res = await fetch("https://dummyjson.com/auth/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password})
+        });
+        const data = await res.json();
+        console.log(data)
+        if (res.ok) {
+            localStorage.setItem('loginActivo', 'true');
+            sessionStorage.setItem("accessToken", data.accessToken);
+            window.location.href = "index.html";
+            return;
+        }
+        error.style.display = "block";
+        error.textContent = data.message;
     }
-    else {
-        error.style.removeProperty = "display"
+    catch(err){
+        console.error('Login error:', err);
+        error.style.display = "block";
+        error.textContent = "Error de red"
     }
-
-    const data = res.json();
-    sessionStorage.setItem("accessToken", data.token);
 }
 
-loginForm.addEventListener("click", login(user, pass))
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const username = document.getElementById('usuario').value;
+    const password = document.getElementById('password').value;
+    login(username, password)
+});
