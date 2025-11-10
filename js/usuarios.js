@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       usuarios.forEach((element, index) => {
         const fila = document.createElement("tr");
 
-        // Crear un id único para cada input de contraseña
         const inputId = `password-${index}`;
         const eyeId = `eye-${index}`;
 

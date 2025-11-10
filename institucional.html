@@ -27,7 +27,8 @@
             </li>
             <li class="nav-item me-2">
               <a class="nav-link link-activo" aria-current="page" href="institucional.html">Institucional</a>
-            </li class="nav-item">
+            </li>  
+            <li class="nav-item me-2">
               <a class="nav-link" href="contacto.html">Contactos</a>
             </li>
             <li class="nav-item me-2">
@@ -35,6 +36,9 @@
             </li>
             <li class="nav-item me-2 d-none" id="administracionLink">
               <a class="nav-link" href="administracion.html">Administración</a>
+            </li>
+            <li class="nav-item me-2 d-none" id="usuariosLink">
+              <a class="nav-link" href="usuarios.html">Usuarios</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -69,7 +73,7 @@
         equipamiento de última generación.</p>
     </section>
 
-    <section class="infoInstitucional w-25 p-3 mx-auto my-5" id="valores">
+    <section class="infoInstitucional w-50 p-3 mx-auto my-5" id="valores">
       <h2 class="text-center">VALORES</h2>
       <ul>
         <li>Respeto por la vida y la dignidad humana</li>
@@ -88,26 +92,28 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script>
-        const adminLink = document.getElementById('administracionLink');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-        const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+    const sesionActiva = localStorage.getItem('loginActivo') === 'true';
 
-        if (sesionActiva) {
-            adminLink.classList.remove('d-none');
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
-        }
+    if (sesionActiva) {
+        adminLink.classList.remove('d-none');
+        usuariosLink.classList.remove('d-none'); // 👈 Se muestra solo si hay login
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+    }
 
-        loginBtn.addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
+    loginBtn.addEventListener('click', () => {
+        window.location.href = "login.html";
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('loginActivo');
-            window.location.reload();
-        });
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loginActivo');
+        window.location.href = "login.html";
+    });
   </script>
 </body>
 

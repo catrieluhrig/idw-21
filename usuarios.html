@@ -23,18 +23,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0 mt-2">
                 <li class="nav-item me-2">
-                  <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                  <a class="nav-link" href="index.html">Inicio</a>
                 </li>
                 <li class="nav-item me-2">
                   <a class="nav-link" href="institucional.html">Institucional</a>
-                </li class="nav-item">
+                </li>  
+                <li class="nav-item me-2">
                   <a class="nav-link" href="contacto.html">Contactos</a>
                 </li>
                 <li class="nav-item me-2">
-                  <a class="nav-link link-activo" href="turnos.html">Turnos</a>
+                  <a class="nav-link" href="turnos.html">Turnos</a>
                 </li>
                 <li class="nav-item me-2 d-none" id="administracionLink">
                   <a class="nav-link" href="administracion.html">Administración</a>
+                </li>
+                <li class="nav-item me-2" id="usuariosLink">
+                  <a class="nav-link link-activo" aria-current="page" href="usuarios.html">Usuarios</a>
                 </li>
               </ul>
               <div class="d-flex">
@@ -47,7 +51,7 @@
    </header>
    <main class="container mt-4">
     <h2 class="text-center mb-4">Usuarios Registrados</h2>
-    <div class="table-responsive">
+    <div class="table-responsive" style="overflow-x: auto;">
       <table id="tablaUsuarios" class="table table-striped table-bordered text-center">
         <thead class="table-success">
           <tr>
@@ -68,26 +72,35 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/usuarios.js"></script>
   <script>
-        const adminLink = document.getElementById('administracionLink');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-        const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+    const sesionActiva = localStorage.getItem('loginActivo') === 'true';
 
-        if (sesionActiva) {
-            adminLink.classList.remove('d-none');
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
-        }
+    if (sesionActiva) {
+        adminLink.classList.remove('d-none');
+        usuariosLink.classList.remove('d-none'); 
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+    }
 
-        loginBtn.addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
+    loginBtn.addEventListener('click', () => {
+        window.location.href = "login.html";
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('loginActivo');
-            window.location.reload();
-        });
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loginActivo');
+        window.location.href = "login.html";
+    });
+  </script>
+  <!-- 🔹 2️⃣ Script de protección de acceso -->
+  <script>
+    if (localStorage.getItem('loginActivo') !== 'true') {
+      alert("Acceso restringido. Debe iniciar sesión.");
+      window.location.href = "login.html";
+    }
   </script>
 </body>
 </html>

@@ -29,27 +29,35 @@
             Usuario o contraseña incorrectos
         </div>
     </div>
-
     <script>
-        const loginForm = document.getElementById('loginForm');
-        const errorMsg = document.getElementById('errorMsg');
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
 
-        // Credenciales
-        const USUARIO = "admin";
-        const PASSWORD = "1234";
+    // Credenciales del admin
+    const USUARIO = "admin";
+    const PASSWORD = "1234";
 
-        loginForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const user = document.getElementById('usuario').value;
-            const pass = document.getElementById('password').value;
+    // Si ya hay una sesión activa, redirige directamente
+    if (localStorage.getItem('loginActivo') === 'true') {
+      window.location.href = "administracion.html";
+    }
 
-            if (user === USUARIO && pass === PASSWORD) {
-                localStorage.setItem('loginActivo', 'true');
-                window.location.href = "administracion.html";
-            } else {
-                errorMsg.style.display = 'block';
-            }
-        });
-    </script>
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const user = document.getElementById('usuario').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === USUARIO && pass === PASSWORD) {
+        // Guarda la sesión
+        localStorage.setItem('loginActivo', 'true');
+        // Redirige al panel principal
+        window.location.href = "administracion.html";
+      } else {
+        // Muestra mensaje de error
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>

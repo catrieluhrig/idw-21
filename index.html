@@ -14,40 +14,43 @@
 <body>
 
     <header class="mt-2">
-        <div class="container-fluid">
-            <h1 class="text-center"> Centro Médico IDW S.A.</h1>
-            <nav class="navbar navbar-expand-lg">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 mt-2">
-                        <li class="nav-item me-2">
-                            <a class="nav-link link-activo" aria-current="page" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a class="nav-link" href="institucional.html">Institucional</a>
-                        </li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contactos</a>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a class="nav-link" href="turnos.html">Turnos</a>
-                        </li>
-                        <li class="nav-item me-2 d-none" id="administracionLink">
-                            <a class="nav-link" href="administracion.html">Administración</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                        <button id="loginBtn" class="btn btn-outline-primary btn-sm">Iniciar sesión</button>
-                        <button id="logoutBtn" class="btn btn-outline-danger btn-sm d-none">Cerrar sesión</button>
-                    </div>
-                </div>
-            </nav>
+      <div class="container-fluid">
+      <h1 class="text-center">Centro Médico IDW S.A.</h1>
+       <nav class="navbar navbar-expand-lg">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+         aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 mt-2">
+          <li class="nav-item me-2">
+            <a class="nav-link link-activo" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="institucional.html">Institucional</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="contacto.html">Contactos</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="turnos.html">Turnos</a>
+          </li>
+          <li class="nav-item me-2 d-none" id="administracionLink">
+            <a class="nav-link" href="administracion.html">Administración</a>
+          </li>
+          <li class="nav-item me-2 d-none" id="usuariosLink">
+            <a class="nav-link" href="usuarios.html">Usuarios</a>
+          </li>
+        </ul>
+          <div class="d-flex">
+           <button id="loginBtn" class="btn btn-outline-primary btn-sm">Iniciar sesión</button>
+           <button id="logoutBtn" class="btn btn-outline-danger btn-sm d-none">Cerrar sesión</button>
+         </div>
         </div>
+      </nav>
+     </div>  
     </header>
-
     <main class="m-5">
         <h2 class="eslogan">Cuidamos tu salud, como cuidaríamos a nuestra familia.</h2>
         <h2 class="eslogan"><u>Tu bienestar, nuestra prioridad.</u></h2>
@@ -72,27 +75,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/medicos.js"></script>
     <script>
-        const adminLink = document.getElementById('administracionLink');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-        const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+    const sesionActiva = localStorage.getItem('loginActivo') === 'true';
 
-        if (sesionActiva) {
-            adminLink.classList.remove('d-none');
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
-        }
+    if (sesionActiva) {
+        adminLink.classList.remove('d-none');
+        usuariosLink.classList.remove('d-none'); // 👈 Se muestra solo si hay login
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+    }
 
-        loginBtn.addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
+    loginBtn.addEventListener('click', () => {
+        window.location.href = "login.html";
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('loginActivo');
-            window.location.reload();
-        });
-    </script>
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loginActivo');
+        window.location.href = "login.html";
+    });
+  </script>
     <script>
         window.renderizarCards();
     </script>
