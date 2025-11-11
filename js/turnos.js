@@ -73,6 +73,10 @@ function obtenerPrecioPorEspecialidad(especialidad) {
   return PRECIOS_POR_ESPECIALIDAD[especialidad] ?? 1500;
 }
 
+function obtenerObrasSocialesDelMedico() {
+  const obrasSociales = allMedicos.obrasSociales
+}
+
 function obtenerEspecialidadPorMedico(nombreMedico) {
   const doctor = allMedicos.find(m => m.nombre === nombreMedico);
   return doctor ? doctor.especialidad : "Medicina General";
