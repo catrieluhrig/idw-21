@@ -49,7 +49,6 @@
     </div>
   </header>
   <main>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>¿QUIÉNES SOMOS?</h2>
       <p>El Centro Médico IDW es una institución privada dedicada a la atención integral de la salud, reconocida por su
@@ -57,14 +56,12 @@
         servicios de alta calidad, un equipo de profesionales comprometidos y una atención personalizada centrada en el
         bienestar del paciente.</p>
     </section>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>MISIÓN</h2>
       <p>En el Centro Médico IDW, trabajamos con un equipo de profesionales altamente calificados, comprometidos con la
         excelencia médica. Nuestra labor se enfoca en la atención personalizada, la innovación tecnológica y la mejora
         continua, con el objetivo de brindar servicios de salud integrales, seguros y humanizados.</p>
     </section>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>VISIÓN</h2>
       <P>Nuestro Centro Médico continuará siendo líder en prestaciones médicas de alta complejidad basadas en tecnología
@@ -72,10 +69,9 @@
         alianzas estratégicas y poniendo énfasis en la prevención, la educación continua y creando e incorporando
         equipamiento de última generación.</p>
     </section>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5" id="valores">
       <h2 class="text-center">VALORES</h2>
-      <ul>
+      <ul class="mx-auto px-3">
         <li>Respeto por la vida y la dignidad humana</li>
         <li>Ética y excelencia profesional</li>
         <li>Compromiso social</li>
@@ -85,7 +81,6 @@
         <li>Sustentabilidad</li>
       </ul>
     </section>
-
   </main>
   <footer class="text-center">
     <p>&copy; 2025 Centro Médico IDW</p>
@@ -101,7 +96,7 @@
 
     if (sesionActiva) {
         adminLink.classList.remove('d-none');
-        usuariosLink.classList.remove('d-none'); // 👈 Se muestra solo si hay login
+        usuariosLink.classList.remove('d-none'); 
         loginBtn.classList.add('d-none');
         logoutBtn.classList.remove('d-none');
     }

@@ -78,17 +78,20 @@ nav button{
     text-align: center;
 }
 
-#valores{
-    border: 3px solid var(--verdePrincipal);
-}
-
 #valores ul {
-    list-style-position: inside;  
-    text-align: left;             
-    margin: 0 auto;               
-    display: inline-block;        
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem; 
+  margin: 1rem auto;
+  text-align: left;
+  max-width: 500px; 
+  width: 100%; 
 }
 
+#valores li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
 /* Institucional */
 
 /* Contactos */
