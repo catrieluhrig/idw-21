@@ -2,12 +2,39 @@ const medicoForm = document.getElementById('medicoForm');
 const tablaBody = document.querySelector('#tablaMedicos tbody');
 const cancelarBtn = document.getElementById('cancelarEdicion');
 
+const medicosPrecargados = [
+    {
+        nombre: "Dra. Susana Giménez",
+        especialidad: "Cardiología",
+        obrasSociales: "OSER - AMUPRO - MEDICUS",
+        imagen: "img/susana.jpg"
+    },
+    {
+        nombre: "Dr. Guillermo Francella",
+        especialidad: "Neumonólogo",
+        obrasSociales: "OSUNER - OSAPMER - Jerárquicos Salud",
+        imagen: "img/francella.jpg"
+    },
+    {
+        nombre: "Dra. Mirtha Legrand",
+        especialidad: "Radióloga",
+        obrasSociales: "Sancor Salud - OSDE - IOSPER",
+        imagen: "img/mirta.jpg"
+    }
+]
+
 let medicos = JSON.parse(localStorage.getItem('medicos')) || [];
 let editando = false;
 
+function guardarEnLocalStorage() {
+    localStorage.setItem('medicos', JSON.stringify(medicos));
+}
+
 function renderMedicos() {
+    const allMedicos = [...medicosPrecargados, ...medicos]; 
     tablaBody.innerHTML = '';
-    medicos.forEach((medico, index) => {
+    
+    allMedicos.forEach((medico, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
@@ -22,6 +49,32 @@ function renderMedicos() {
             </td>
         `;
         tablaBody.appendChild(row);
+    });
+}
+
+window.renderizarCards = function() {
+    const contenedorMedicos = document.getElementById('listaMedicos');
+
+    const allMedicos = [...medicosPrecargados, ...medicos];
+    contenedorMedicos.innerHTML = '';
+
+    allMedicos.forEach(medico => {
+        const col = document.createElement('div');
+        col.className = 'card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3';
+
+        col.innerHTML = `
+            <div class="card h-100 p-2">
+                <img src="${medico.imagen || 'img/equipo-medico.png'}" 
+                        alt="Foto de ${medico.nombre}" 
+                        class="card-img-top w-75 h-50 rounded-3 mb-3 mx-auto">
+                <div class="card-body">
+                    <h3 class="card-title">${medico.nombre}</h3>
+                    <p>Especialidad: ${medico.especialidad}</p>
+                    <p>Obras Sociales: ${medico.obrasSociales}</p>
+                </div>
+            </div>
+        `;
+        contenedorMedicos.appendChild(col);
     });
 }
 
@@ -43,14 +96,14 @@ medicoForm.addEventListener('submit', e => {
 
         if (editando) {
             const id = document.getElementById('medicoId').value;
-            medicos[id] = medicoData;
+            medicos[id - medicosPrecargados.length] = medicoData;
             editando = false;
             cancelarBtn.classList.add('d-none');
         } else {
             medicos.push(medicoData);
         }
 
-        localStorage.setItem('medicos', JSON.stringify(medicos));
+        guardarEnLocalStorage()
         medicoForm.reset();
         renderMedicos();
     };
@@ -68,7 +121,11 @@ medicoForm.addEventListener('submit', e => {
 });
 
 window.editarMedico = function(index) {
-    const medico = medicos[index];
+    if (index < medicosPrecargados.length){
+        alert("No se puden editar los medicos precargados");
+        return;
+    }
+    const medico = medicos[index - medicosPrecargados.length]; 
     document.getElementById('medicoId').value = index;
     document.getElementById('nombre').value = medico.nombre;
     document.getElementById('especialidad').value = medico.especialidad;
@@ -80,8 +137,12 @@ window.editarMedico = function(index) {
 
 window.eliminarMedico = function(index) {
     if (confirm('¿Estás seguro de eliminar este médico?')) {
-        medicos.splice(index, 1);
-        localStorage.setItem('medicos', JSON.stringify(medicos));
+        if (index < medicosPrecargados.length){
+            alert("No se pueden eliminar los médicos precargados");
+            return
+        }
+        medicos.splice(index - medicosPrecargados.length, 1); 
+        guardarEnLocalStorage();
         renderMedicos();
     }
 };

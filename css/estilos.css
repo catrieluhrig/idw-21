@@ -43,75 +43,6 @@ nav button{
     background-color: var(--verdePrincipal) !important;
 }
 
-/* Index */
-.eslogan{
-    text-align: center;
-}
-
-.card-container{
-    background-color: transparent; 
-    border: none;
-    box-shadow: none; 
-}
-
-.card-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px #333;
-}
-
-.card-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px #333;
-}
-
-
-.card-container img {
-    display: block;
-    width: 100%;        
-    height: auto;       
-    border-radius: 8px; 
-}
-
-
-.card-container .card-text,
-.card-container .info {
-    background: transparent;
-}
-
-/* Institucional */
-.infoInstitucional{
-    background-color:#e1e4e1;
-    box-shadow: 1px 2px 5px grey;
-    text-align: justify;
-}
-
-#valores{
-    border: 3px solid var(--verdePrincipal);
-}
-/* Institucional */
-
-/* Contactos */
-#maps{
-    height: 15em;
-}
-
-.botones>input{
-    background-color: var(--verdeSecundario);
-}
-/* Contactos */
-
-footer{
-    background-color: var(--grisSecundario);
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    color: var(--blancoPrincipal);
-    border-radius: 15px;
-    border-style: solid;
-    border: 5px solid var(--grisPrincipal);
-    text-align: center;
-    padding: 10px;
-}
-
 /* Navbar */
 .navbar {
     display: flex;
@@ -148,24 +79,105 @@ footer{
     padding: 5px 10px;
 }
 
-/*Imsgen sin fondo blanco*/
+.eslogan{
+    text-align: center;
+}
+
+.card-container{
+    background-color: #e1e4e1 !important;
+    box-shadow: 1px 2px 5px grey !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px #333;
+}
+
+.card-container img {
+    display: block;
+    width: 100%;        
+    height: auto;       
+    border-radius: 8px; 
+}
+
+
 .card {
     background-color: transparent;
     border: none;
     box-shadow: none 
 }
 
-
-.card-body {
-    background-color: transparent 
-}
-
-
-.card img {
-    border-radius: 10px;
-}
-
 .card h3,
 .card p {
     color: #333; 
+}
+
+/* Institucional */
+.infoInstitucional{
+    background-color:#e1e4e1;
+    box-shadow: 1px 2px 5px grey;
+    text-align: justify;
+}
+
+#valores{
+    border: 3px solid var(--verdePrincipal);
+}
+
+#maps{
+    height: 15em;
+    width: 80%; 
+    border: 0;
+}
+
+.botones>input{
+    background-color: var(--verdeSecundario);
+}
+
+#botonTurnos a{
+    text-decoration: none;
+    color: #e1e4e1 !important;
+}
+
+footer{
+    background-color: var(--grisSecundario);
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--blancoPrincipal);
+    border-radius: 15px;
+    border-style: solid;
+    border: 5px solid var(--grisPrincipal);
+    text-align: center;
+    padding: 10px;
+}
+
+tr{
+    background-color: var(--verdeSecundario)
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-field {
+    width: 100%;
+    padding-right: 40px; 
+    border: none;
+    background-color: transparent; 
+    text-align: center;
+    cursor: default;
+}
+
+.btn-eye {
+    position: absolute;
+    right: 5px; 
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--grisPrincipal);
+    padding: 0;
 }

@@ -30,8 +30,14 @@
             </li class="nav-item">
               <a class="nav-link" href="contacto.html">Contactos</a>
             </li>
+            <li class="nav-item me-2">
+              <a class="nav-link" href="turnos.html">Turnos</a>
+            </li>
             </li class="nav-item">
               <a class="nav-link link-activo" aria-current="page" href="administracion.html">Administración</a>
+            </li>
+            <li class="nav-item me-2">
+                <a class="nav-link" href="usuarios.html">Usuarios</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -73,10 +79,11 @@
         </form>
 
         
-        <div class="table-responsive">
+        <div class="table-responsive mt-5">
             <table class="table table-striped" id="tablaMedicos">
                 <thead>
                     <tr>
+                        <th>Imagen</th>
                         <th>Nombre</th>
                         <th>Especialidad</th>
                         <th>Obras Sociales</th>
@@ -90,23 +97,21 @@
         </div>
     </main>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center">
         <p>&copy; 2025 Centro Médico IDW</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('loginActivo');
         window.location.href = "login.html";
     });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     if (localStorage.getItem('loginActivo') !== 'true') {
         window.location.href = "login.html";
     }
     </script>
     <script src="js/medicos.js"></script>
-    
-
 </body>
 </html>
