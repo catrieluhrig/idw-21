@@ -50,14 +50,14 @@
       </div>
    </header>
    <main class="container mt-4">
+    
     <h2 class="text-center mb-4">Usuarios Registrados</h2>
-    <div class="table-responsive" style="overflow-x: auto;">
+    <div class="table-responsive mb-5" style="overflow-x: auto;">
       <table id="tablaUsuarios" class="table table-striped table-bordered text-center">
         <thead class="table-success">
           <tr>
             <th>Nombre</th>
             <th>Usuario</th>
-            <th>Contraseña</th>
             <th>Email</th>
             <th>Telefono</th>
           </tr>
@@ -65,11 +65,32 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <hr class="my-5">
+
+    <h2 class="text-center mb-4">Turnos Agendados</h2>
+    <div class="table-responsive" style="overflow-x: auto;">
+      <table id="tablaTurnos" class="table table-striped table-bordered text-center">
+        <thead class="table-success">
+          <tr>
+            <th>Doctor</th>
+            <th>Fecha y Hora</th>
+            <th>Nombre y Apellido</th>
+            <th>Email</th>
+            <th>Obra Social</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
   </main>
   <footer class="text-center">
     <p>&copy; 2025 Centro Médico IDW</p>
   </footer>   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/usuario.js"></script>
   <script>
     const adminLink = document.getElementById('administracionLink');
     const usuariosLink = document.getElementById('usuariosLink');
@@ -83,6 +104,8 @@
         usuariosLink.classList.remove('d-none'); 
         loginBtn.classList.add('d-none');
         logoutBtn.classList.remove('d-none');
+    } else {
+        window.location.href = "login.html";
     }
 
     loginBtn.addEventListener('click', () => {
@@ -94,12 +117,5 @@
         window.location.href = "login.html";
     });
   </script>
-  <script>
-    if (localStorage.getItem('loginActivo') !== 'true') {
-      alert("Acceso restringido. Debe iniciar sesión.");
-      window.location.href = "login.html";
-    }
-  </script>
-  <script src="js/usuario.js"></script>
 </body>
 </html>

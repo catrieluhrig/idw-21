@@ -100,18 +100,37 @@
     <footer class="text-center">
         <p>&copy; 2025 Centro Médico IDW</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    document.getElementById('logoutBtn').addEventListener('click', () => {
+    <script src="js/medicos.js"></script>
+     <script>
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+
+    if (sesionActiva) {
+        adminLink.classList.remove('d-none');
+        usuariosLink.classList.remove('d-none'); 
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+    }
+
+    loginBtn.addEventListener('click', () => {
+        window.location.href = "login.html";
+    });
+
+    logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('loginActivo');
         window.location.href = "login.html";
     });
-    </script>
-    <script>
+  </script>
+
+  <script>
     if (localStorage.getItem('loginActivo') !== 'true') {
-        window.location.href = "login.html";
+      alert("Acceso restringido. Debe iniciar sesión.");
+      window.location.href = "login.html";
     }
-    </script>
-    <script src="js/medicos.js"></script>
+  </script>
 </body>
 </html>

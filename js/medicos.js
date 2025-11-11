@@ -23,7 +23,7 @@ const medicosPrecargados = [
     }
 ]
 
-let medicos = JSON.parse(localStorage.getItem('medicos')) || [];
+let medicos = JSON.parse(localStorage.getItem('medicos')) || medicosPrecargados; 
 let editando = false;
 
 function guardarEnLocalStorage() {
@@ -31,10 +31,9 @@ function guardarEnLocalStorage() {
 }
 
 function renderMedicos() {
-    const allMedicos = [...medicosPrecargados, ...medicos]; 
     tablaBody.innerHTML = '';
     
-    allMedicos.forEach((medico, index) => {
+    medicos.forEach((medico, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
@@ -54,11 +53,9 @@ function renderMedicos() {
 
 window.renderizarCards = function() {
     const contenedorMedicos = document.getElementById('listaMedicos');
-
-    const allMedicos = [...medicosPrecargados, ...medicos];
     contenedorMedicos.innerHTML = '';
 
-    allMedicos.forEach(medico => {
+    medicos.forEach(medico => {
         const col = document.createElement('div');
         col.className = 'card-container col-12 col-md-6 col-lg-3 mx-auto mt-5 p-2 rounded-3';
 
@@ -96,7 +93,7 @@ medicoForm.addEventListener('submit', e => {
 
         if (editando) {
             const id = document.getElementById('medicoId').value;
-            medicos[id - medicosPrecargados.length] = medicoData;
+            medicos[id] = medicoData;
             editando = false;
             cancelarBtn.classList.add('d-none');
         } else {
@@ -108,7 +105,6 @@ medicoForm.addEventListener('submit', e => {
         renderMedicos();
     };
 
-    
     if (imagenInput.files && imagenInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function (e) {
@@ -116,16 +112,14 @@ medicoForm.addEventListener('submit', e => {
         };
         reader.readAsDataURL(imagenInput.files[0]);
     } else {
-        saveMedico(null);
+        const id = document.getElementById('medicoId').value;
+        const currentMedico = medicos[id];
+        saveMedico(editando ? currentMedico.imagen : null);
     }
 });
 
 window.editarMedico = function(index) {
-    if (index < medicosPrecargados.length){
-        alert("No se puden editar los medicos precargados");
-        return;
-    }
-    const medico = medicos[index - medicosPrecargados.length]; 
+    const medico = medicos[index]; 
     document.getElementById('medicoId').value = index;
     document.getElementById('nombre').value = medico.nombre;
     document.getElementById('especialidad').value = medico.especialidad;
@@ -137,11 +131,7 @@ window.editarMedico = function(index) {
 
 window.eliminarMedico = function(index) {
     if (confirm('¿Estás seguro de eliminar este médico?')) {
-        if (index < medicosPrecargados.length){
-            alert("No se pueden eliminar los médicos precargados");
-            return
-        }
-        medicos.splice(index - medicosPrecargados.length, 1); 
+        medicos.splice(index, 1); 
         guardarEnLocalStorage();
         renderMedicos();
     }
@@ -152,5 +142,10 @@ cancelarBtn.addEventListener('click', () => {
     editando = false;
     cancelarBtn.classList.add('d-none');
 });
+
+if (medicos.length === 0) {
+    medicos = medicosPrecargados;
+    guardarEnLocalStorage();
+}
 
 renderMedicos();
