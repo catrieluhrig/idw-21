@@ -2,6 +2,7 @@ const dropdown = document.getElementById("medicos-dropdown");
 const turnoSubmit = document.getElementById("turno-submit");
 const success = document.getElementById("success");
 const tablaTurnosBody = document.querySelector("#tablaTurnos tbody");
+const selectObraSocial = document.getElementById("tieneObraSocial")
 
 const medicosPrecargados = [
     {
@@ -46,6 +47,9 @@ function renderTurnos(){
         </td>
         <td>
         ${turno.turnoEmail}
+        </td>
+        <td>
+        ${turno.precioFinal}
         </td>`
         tablaTurnosBody.appendChild(row)
     })
@@ -69,10 +73,10 @@ function obtenerEspecialidadPorMedico(nombreMedico) {
   return doctor ? doctor.especialidad : "Medicina General";
 }
 
-function calcularValorConsulta(tieneObraSocial) {
+function calcularValorConsulta() {
   const especialidad = obtenerEspecialidadPorMedico("");
   const precioBase = obtenerPrecioPorEspecialidad(especialidad);
-  const precioFinal = Math.round(precioBase * (tieneObraSocial  ? PORCENTAJE_PAGO_CON_OS : 1));
+  const precioFinal = Math.round(precioBase * (selectObraSocial.selectedIndex !== 0  ? PORCENTAJE_PAGO_CON_OS : 1));
 
   return { especialidad, precioBase, precioFinal };
 }
@@ -88,7 +92,7 @@ function mostrarValorConsultaEnPantalla(nombreMedico, tieneObraSocial = false) {
           <p><strong>Médico:</strong> ${nombreMedico}</p>
           <p><strong>Especialidad:</strong> ${resultado.especialidad}</p>
           <p><strong>Precio base:</strong> $${resultado.precioBase}</p>
-          <p><strong>A pagar:</strong> $${resultado.precioFinal} ${tieneObraSocial ? '(con obra social)' : ''}</p>
+          <p><strong>A pagar:</strong> $${resultado.precioFinal} ${selectObraSocial.selectedIndex !==0 ? '(con obra social)' : ''}</p>
         </div>
       </div>
   `;
@@ -101,7 +105,8 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
   const fecha = document.getElementById("turno-fechahora").value;
   const nombre = document.getElementById("turno-nombre").value;
   const email = document.getElementById("turno-email").value;
-  const tieneObraSocial = document.getElementById("tieneObraSocial")?.value || false; 
+  const tieneObraSocial = document.getElementById("tieneObraSocial")?.value || false;
+
 
   if (!doctor) {
     success.textContent = "Error: Debe seleccionar un médico.";
@@ -119,7 +124,8 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
     turnoFecha: fecha,
     turnoNombre: nombre,
     turnoEmail: email,
-    obraSocial: tieneObraSocial
+    obraSocial: tieneObraSocial,
+    precioFinal: calcularValorConsulta().precioFinal
   };
 
   turnos.push(turno);
