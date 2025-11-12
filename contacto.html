@@ -37,6 +37,9 @@
             <li class="nav-item me-2 d-none" id="administracionLink">
               <a class="nav-link" href="administracion.html">Administración</a>
             </li>
+            <li class="nav-item me-2 d-none" id="usuariosLink">
+                <a class="nav-link" href="usuarios.html">Usuarios</a>
+            </li>
           </ul>
           <div class="d-flex">
               <button id="loginBtn" class="btn btn-outline-primary btn-sm">Iniciar sesión</button>
@@ -52,7 +55,6 @@
     <h2 class="text-center my-5">Contáctenos</h2>
 
     <section class="row g-5 mb-4 mx-auto">
-      <!-- Card 1 -->
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 text-center p-2 card-container">
           <div class="card-body">
@@ -63,7 +65,6 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 text-center p-2 card-container">
           <div class="card-body">
@@ -74,7 +75,6 @@
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 text-center p-2 card-container">
           <div class="card-body">
@@ -85,7 +85,6 @@
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="col-sm-6 col-lg-3">
         <div class="card h-100 text-center p-2 card-container ">
           <div class="card-body">
@@ -100,7 +99,7 @@
     <section class="text-center my-5">
       <h2>¿Dónde estamos?</h2>
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019716527607!2d-122.42100868468132!3d37.774929779759906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808a063b18e9%3A0x9462a6b5a3ee847e!2sSan%20Francisco%2C%20CA%2C%20EE.%20UU.!5e0!3m2!1ses!2s!4v1631800541470!5m2!1ses!2s"
+        src="https://www.google.com/maps?q=-31.381928,-58.0226992&z=17&output=embed"
         allowfullscreen="" loading="lazy" id="maps"></iframe>
     </section>
 
@@ -113,11 +112,12 @@
     </section>
   </main>
   <footer class="text-center">
-    <p>&copy; 2025 Centro Médico IDW</p>
+    <p>© 2025 Centro Médico IDW</p>
   </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
         const adminLink = document.getElementById('administracionLink');
+        const usuariosLink = document.getElementById('usuariosLink');
         const loginBtn = document.getElementById('loginBtn');
         const logoutBtn = document.getElementById('logoutBtn');
 
@@ -125,6 +125,7 @@
 
         if (sesionActiva) {
             adminLink.classList.remove('d-none');
+            usuariosLink.classList.remove('d-none');
             loginBtn.classList.add('d-none');
             logoutBtn.classList.remove('d-none');
         }
@@ -135,7 +136,7 @@
 
         logoutBtn.addEventListener('click', () => {
             localStorage.removeItem('loginActivo');
-            window.location.reload();
+            window.location.href = "login.html";
         });
   </script>
 </body>

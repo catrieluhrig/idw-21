@@ -27,7 +27,8 @@
             </li>
             <li class="nav-item me-2">
               <a class="nav-link link-activo" aria-current="page" href="institucional.html">Institucional</a>
-            </li class="nav-item">
+            </li>  
+            <li class="nav-item me-2">
               <a class="nav-link" href="contacto.html">Contactos</a>
             </li>
             <li class="nav-item me-2">
@@ -35,6 +36,9 @@
             </li>
             <li class="nav-item me-2 d-none" id="administracionLink">
               <a class="nav-link" href="administracion.html">Administración</a>
+            </li>
+            <li class="nav-item me-2 d-none" id="usuariosLink">
+              <a class="nav-link" href="usuarios.html">Usuarios</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -45,7 +49,6 @@
     </div>
   </header>
   <main>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>¿QUIÉNES SOMOS?</h2>
       <p>El Centro Médico IDW es una institución privada dedicada a la atención integral de la salud, reconocida por su
@@ -53,14 +56,12 @@
         servicios de alta calidad, un equipo de profesionales comprometidos y una atención personalizada centrada en el
         bienestar del paciente.</p>
     </section>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>MISIÓN</h2>
       <p>En el Centro Médico IDW, trabajamos con un equipo de profesionales altamente calificados, comprometidos con la
         excelencia médica. Nuestra labor se enfoca en la atención personalizada, la innovación tecnológica y la mejora
         continua, con el objetivo de brindar servicios de salud integrales, seguros y humanizados.</p>
     </section>
-
     <section class="infoInstitucional w-50 p-3 mx-auto my-5">
       <h2>VISIÓN</h2>
       <P>Nuestro Centro Médico continuará siendo líder en prestaciones médicas de alta complejidad basadas en tecnología
@@ -68,10 +69,9 @@
         alianzas estratégicas y poniendo énfasis en la prevención, la educación continua y creando e incorporando
         equipamiento de última generación.</p>
     </section>
-
-    <section class="infoInstitucional w-25 p-3 mx-auto my-5" id="valores">
+    <section class="infoInstitucional w-50 p-3 mx-auto my-5" id="valores">
       <h2 class="text-center">VALORES</h2>
-      <ul>
+      <ul class="mx-auto px-3">
         <li>Respeto por la vida y la dignidad humana</li>
         <li>Ética y excelencia profesional</li>
         <li>Compromiso social</li>
@@ -81,33 +81,34 @@
         <li>Sustentabilidad</li>
       </ul>
     </section>
-
   </main>
   <footer class="text-center">
     <p>&copy; 2025 Centro Médico IDW</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script>
-        const adminLink = document.getElementById('administracionLink');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-        const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+    const sesionActiva = localStorage.getItem('loginActivo') === 'true';
 
-        if (sesionActiva) {
-            adminLink.classList.remove('d-none');
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
-        }
+    if (sesionActiva) {
+        adminLink.classList.remove('d-none');
+        usuariosLink.classList.remove('d-none'); 
+        loginBtn.classList.add('d-none');
+        logoutBtn.classList.remove('d-none');
+    }
 
-        loginBtn.addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
+    loginBtn.addEventListener('click', () => {
+        window.location.href = "login.html";
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('loginActivo');
-            window.location.reload();
-        });
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loginActivo');
+        window.location.href = "login.html";
+    });
   </script>
 </body>
 
