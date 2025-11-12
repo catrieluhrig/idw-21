@@ -135,7 +135,7 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
     turnoFecha: fecha,
     turnoNombre: nombre,
     turnoEmail: email,
-    obraSocial: tieneObraSocial,
+    obraSocial: tieneObraSocial.value,
     precioFinal: valorCalc.precioFinal
   };
 
