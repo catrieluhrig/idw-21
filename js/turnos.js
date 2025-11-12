@@ -33,7 +33,7 @@ let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
 function renderTurnos(){
     tablaTurnosBody.innerHTML = ''; 
 
-    turnos.forEach((turno) => {
+    turnos.forEach((turno, index) => {
         const fechaFormateada = turno.turnoFecha ? turno.turnoFecha.replace('T', ' ') : 'Fecha no definida';
         const row = document.createElement('tr');
         row.innerHTML = `<td>
@@ -50,10 +50,21 @@ function renderTurnos(){
         </td>
         <td>
         ${turno.precioFinal}
+        </td>
+        <td>
+          <button class="btn btn-sm btn-danger" onclick="eliminarTurno(${index})">Eliminar</button>
         </td>`
         tablaTurnosBody.appendChild(row)
     })
 }
+
+window.eliminarTurno = function(index) {
+    if (confirm('¿Estás seguro de eliminar este turno?')) {
+      turnos.splice(index, 1);
+      localStorage.setItem("turnos", JSON.stringify(turnos));
+      renderTurnos();
+    }
+  };
 
 const PRECIOS_POR_ESPECIALIDAD = {
   "Cardiología": 2500,
@@ -105,8 +116,8 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
   const fecha = document.getElementById("turno-fechahora").value;
   const nombre = document.getElementById("turno-nombre").value;
   const email = document.getElementById("turno-email").value;
-  const tieneObraSocial = document.getElementById("tieneObraSocial")?.value || false;
-
+  const obraSeleccionada = document.getElementById("tieneObraSocial")?.value || false;
+  const valorCalc = calcularValorConsulta(doctor, obraSeleccionada)
 
   if (!doctor) {
     success.textContent = "Error: Debe seleccionar un médico.";
@@ -124,8 +135,8 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
     turnoFecha: fecha,
     turnoNombre: nombre,
     turnoEmail: email,
-    obraSocial: tieneObraSocial,
-    precioFinal: calcularValorConsulta().precioFinal
+    obraSocial: tieneObraSocial.value,
+    precioFinal: valorCalc.precioFinal
   };
 
   turnos.push(turno);
