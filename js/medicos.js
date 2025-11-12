@@ -93,7 +93,7 @@ medicoForm.addEventListener('submit', e => {
 
         if (editando) {
             const id = document.getElementById('medicoId').value;
-            medicos[id] = medicoData;
+            medicos[id - medicosPrecargados.length] = medicoData;
             editando = false;
             cancelarBtn.classList.add('d-none');
         } else {
