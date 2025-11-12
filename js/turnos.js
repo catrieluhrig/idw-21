@@ -73,8 +73,8 @@ function obtenerEspecialidadPorMedico(nombreMedico) {
   return doctor ? doctor.especialidad : "Medicina General";
 }
 
-function calcularValorConsulta() {
-  const especialidad = obtenerEspecialidadPorMedico("");
+function calcularValorConsulta(nombreMedico) {
+  const especialidad = obtenerEspecialidadPorMedico(nombreMedico);
   const precioBase = obtenerPrecioPorEspecialidad(especialidad);
   const precioFinal = Math.round(precioBase * (selectObraSocial.selectedIndex !== 0  ? PORCENTAJE_PAGO_CON_OS : 1));
 
@@ -86,7 +86,7 @@ function mostrarValorConsultaEnPantalla(nombreMedico, tieneObraSocial = false) {
 
   const contenedor = document.getElementById("consultaValor");
   contenedor.innerHTML = `
-      <div class="card mx-auto p-3 shadow" style="max-width:520px; border: 1px solid #ccc;">
+      <div class="card mx-auto p-3 shadow consultaValorContainer">
         <div class="card-body">
           <h5 class="card-title text-center mb-3">Valor de la consulta</h5>
           <p><strong>Médico:</strong> ${nombreMedico}</p>
@@ -189,5 +189,5 @@ document.getElementById("medicos-dropdown").addEventListener("change", (e) => {
 
 
 nombres();
-obtenerObrasSocialesDelMedico("")
 renderTurnos();
+obtenerObrasSocialesDelMedico("")
