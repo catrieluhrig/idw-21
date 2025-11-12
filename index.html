@@ -88,16 +88,15 @@
         loginBtn.classList.add('d-none');
         logoutBtn.classList.remove('d-none');
     }
-
-    loginBtn.addEventListener('click', () => {
+      loginBtn.addEventListener('click', () => {
         window.location.href = "login.html";
     });
 
-    logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('loginActivo');
-        window.location.reload();
-    });
-  </script>
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('loginActivo');
+            window.location.reload();
+        });
+    </script>
     <script>
         window.renderizarCards();
     </script>
