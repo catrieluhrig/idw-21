@@ -29,15 +29,6 @@ const allMedicos = medicosAgregados.length > 0 ? medicosAgregados : medicosPreca
 
 let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
 
-function nombres(){
-    allMedicos.forEach((medico) => {
-        const option = document.createElement("option");
-        option.textContent = `${medico.nombre} - ${medico.especialidad}`;
-        option.value = medico.nombre;
-        dropdown.appendChild(option);
-    })
-}
-
 function renderTurnos(){
     tablaTurnosBody.innerHTML = ''; 
 
@@ -73,19 +64,15 @@ function obtenerPrecioPorEspecialidad(especialidad) {
   return PRECIOS_POR_ESPECIALIDAD[especialidad] ?? 1500;
 }
 
-function obtenerObrasSocialesDelMedico() {
-  const obrasSociales = allMedicos.obrasSociales
-}
-
 function obtenerEspecialidadPorMedico(nombreMedico) {
   const doctor = allMedicos.find(m => m.nombre === nombreMedico);
   return doctor ? doctor.especialidad : "Medicina General";
 }
 
-function calcularValorConsulta(nombreMedico, tieneObraSocial) {
-  const especialidad = obtenerEspecialidadPorMedico(nombreMedico);
+function calcularValorConsulta(tieneObraSocial) {
+  const especialidad = obtenerEspecialidadPorMedico("");
   const precioBase = obtenerPrecioPorEspecialidad(especialidad);
-  const precioFinal = Math.round(precioBase * (tieneObraSocial ? PORCENTAJE_PAGO_CON_OS : 1));
+  const precioFinal = Math.round(precioBase * (tieneObraSocial  ? PORCENTAJE_PAGO_CON_OS : 1));
 
   return { especialidad, precioBase, precioFinal };
 }
@@ -114,7 +101,7 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
   const fecha = document.getElementById("turno-fechahora").value;
   const nombre = document.getElementById("turno-nombre").value;
   const email = document.getElementById("turno-email").value;
-  const tieneObraSocial = document.getElementById("tieneObraSocial")?.checked || false; 
+  const tieneObraSocial = document.getElementById("tieneObraSocial")?.value || false; 
 
   if (!doctor) {
     success.textContent = "Error: Debe seleccionar un médico.";
@@ -150,15 +137,6 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
   renderTurnos();
 });
 
-document.getElementById("medicos-dropdown").addEventListener("change", (e) => {
-  const doctor = e.target.value;
-  if (doctor !== "") {
-    mostrarValorConsultaEnPantalla(doctor, document.getElementById("tieneObraSocial")?.checked || false);
-  } else {
-    document.getElementById("consultaValor").innerHTML = "";
-  }
-});
-
 document.getElementById("tieneObraSocial").addEventListener("change", (e) => {
     const doctor = document.getElementById("medicos-dropdown").value;
     if (doctor !== "") {
@@ -166,5 +144,44 @@ document.getElementById("tieneObraSocial").addEventListener("change", (e) => {
     }
 });
 
+function obtenerObrasSocialesDelMedico(nombreMedico) {
+  tieneObraSocial.innerHTML = "" //Limpia las opciones anteriores
+  opcionDefault = document.createElement("option");
+  opcionDefault.textContent = "No tengo / Ninguna de las anteriores" //Establece esta opcion default cuando se cambie el medico
+  tieneObraSocial.appendChild(opcionDefault)
+
+  const medico = allMedicos.find(m => m && m.nombre === nombreMedico);
+  const obras = medico.obrasSociales.split("-")
+  obras.forEach(obra => {
+    const opt = document.createElement("option");
+    opt.value = obra;
+    opt.textContent = obra;
+    tieneObraSocial.appendChild(opt);
+  });
+  console.log(obras)
+}
+
+function nombres(){
+    allMedicos.forEach((medico) => {
+        const option = document.createElement("option");
+        option.textContent = `${medico.nombre} - ${medico.especialidad}`;
+        option.value = medico.nombre;
+        dropdown.appendChild(option);
+    })
+}
+
+document.getElementById("medicos-dropdown").addEventListener("change", (e) => {
+  const doctor = e.target.value;
+  if (doctor !== "") {
+    mostrarValorConsultaEnPantalla(doctor, document.getElementById("tieneObraSocial")?.value || false);
+    obtenerObrasSocialesDelMedico(doctor);
+  } else {
+    document.getElementById("consultaValor").innerHTML = "";
+    obtenerObrasSocialesDelMedico("");
+  }
+});
+
+
 nombres();
+obtenerObrasSocialesDelMedico("")
 renderTurnos();
