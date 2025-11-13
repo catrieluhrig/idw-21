@@ -29,7 +29,7 @@
             <li class="nav-item me-2">
               <a class="nav-link" href="institucional.html">Institucional</a>
             </li class="nav-item">
-              <a class="nav-link link-activo" aria-current="page" href="contacto.html">Contactos</a>
+            <a class="nav-link link-activo" aria-current="page" href="contacto.html">Contactos</a>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="turnos.html">Turnos</a>
@@ -38,13 +38,13 @@
               <a class="nav-link" href="administracion.html">Administración</a>
             </li>
             <li class="nav-item me-2 d-none" id="usuariosLink">
-                <a class="nav-link" href="usuarios.html">Usuarios</a>
+              <a class="nav-link" href="usuarios.html">Usuarios</a>
             </li>
           </ul>
           <div class="d-flex">
-              <button id="loginBtn" class="btn btn-outline-primary btn-sm">Iniciar sesión</button>
-              <button id="logoutBtn" class="btn btn-outline-danger btn-sm d-none">Cerrar sesión</button>
-           </div>
+            <button id="loginBtn" class="btn btn-outline-primary btn-sm">Iniciar sesión</button>
+            <button id="logoutBtn" class="btn btn-outline-danger btn-sm d-none">Cerrar sesión</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -98,9 +98,8 @@
 
     <section class="text-center my-5">
       <h2>¿Dónde estamos?</h2>
-      <iframe
-        src="https://www.google.com/maps?q=-31.381928,-58.0226992&z=17&output=embed"
-        allowfullscreen="" loading="lazy" id="maps"></iframe>
+      <iframe src="https://www.google.com/maps?q=-31.381928,-58.0226992&z=17&output=embed" allowfullscreen=""
+        loading="lazy" id="maps"></iframe>
     </section>
 
     <section class="botones mx-auto text-center mb-5">
@@ -114,30 +113,42 @@
   <footer class="text-center">
     <p>© 2025 Centro Médico IDW</p>
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script>
-        const adminLink = document.getElementById('administracionLink');
-        const usuariosLink = document.getElementById('usuariosLink');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script>
+    const role = sessionStorage.getItem("role")
+    const adminLink = document.getElementById('administracionLink');
+    const usuariosLink = document.getElementById('usuariosLink');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-        const sesionActiva = localStorage.getItem('loginActivo') === 'true';
+    if (role && role == "admin" || role == "moderator") {
+      adminLink.classList.remove("d-none")
+      usuariosLink.classList.remove('d-none');
+      logoutBtn.classList.remove('d-none');
+      loginBtn.classList.add("d-none")
+    }
+    else if (role && role != "admin" && role != "moderator") {
+      adminLink.classList.add("d-none")
+      usuariosLink.classList.add('d-none');
+      logoutBtn.classList.remove('d-none');
+      loginBtn.classList.add("d-none")
+    }
 
-        if (sesionActiva) {
-            adminLink.classList.remove('d-none');
-            usuariosLink.classList.remove('d-none');
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
-        }
+    loginBtn.addEventListener('click', () => {
+      window.location.href = "login.html";
+    });
 
-        loginBtn.addEventListener('click', () => {
-            window.location.href = "login.html";
-        });
+    logoutBtn.addEventListener('click', () => {
+      logoutBtn.classList.add('d-none');
+      loginBtn.classList.remove("d-none")
+      localStorage.removeItem('loginActivo');
+      sessionStorage.removeItem("role")
+      window.location.reload();
+    });
 
-        logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('loginActivo');
-            window.location.reload();
-        });
   </script>
 </body>
+
 </html>

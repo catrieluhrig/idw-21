@@ -15,7 +15,15 @@ async function login(username, password){
         if (res.ok) {
             localStorage.setItem('loginActivo', 'true');
             sessionStorage.setItem("accessToken", data.accessToken);
-            console.log(data)
+            const user = await
+             fetch(`https://dummyjson.com/users/${data.id}`)
+                .then (res=> res.json())
+            console.log(user.role)
+            sessionStorage.setItem("role", user.role)
+            if(user.role == "admin"){
+                window.location.href = "administracion.html"
+                return
+            }
             window.location.href = "index.html";
             return;
         }

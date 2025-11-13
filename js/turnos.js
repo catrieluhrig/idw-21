@@ -157,22 +157,26 @@ document.getElementById("turno-submit").addEventListener("submit", (e) => {
 document.getElementById("tieneObraSocial").addEventListener("change", (e) => {
     const doctor = document.getElementById("medicos-dropdown").value;
     if (doctor !== "") {
-        mostrarValorConsultaEnPantalla(doctor, e.target.checked);
+        mostrarValorConsultaEnPantalla(doctor, e.target.value);
     }
 });
 
 function obtenerObrasSocialesDelMedico(nombreMedico) {
   tieneObraSocial.innerHTML = "" //Limpia las opciones anteriores
-  opcionDefault = document.createElement("option");
+  const opcionDefault = document.createElement("option");
   opcionDefault.textContent = "No tengo / Ninguna de las anteriores" //Establece esta opcion default cuando se cambie el medico
   tieneObraSocial.appendChild(opcionDefault)
+
+  if (!nombreMedico) {
+    return //Retorna si la opción seleccionada es la default o si el nombre del médico no coincide (puse esto para que no me salga error en consola)
+  }
 
   const medico = allMedicos.find(m => m && m.nombre === nombreMedico);
   const obras = medico.obrasSociales.split("-")
   obras.forEach(obra => {
     const opt = document.createElement("option");
-    opt.value = obra;
-    opt.textContent = obra;
+    opt.value = obra.trim();
+    opt.textContent = obra.trim();
     tieneObraSocial.appendChild(opt);
   });
   console.log(obras)
@@ -190,6 +194,7 @@ function nombres(){
 document.getElementById("medicos-dropdown").addEventListener("change", (e) => {
   const doctor = e.target.value;
   if (doctor !== "") {
+    selectObraSocial.selectedIndex = 0; //Actualiza el selectedIndex a 0 para que no quede el valor de la obra social previa (si es que se seleccionó una obra social)
     mostrarValorConsultaEnPantalla(doctor, document.getElementById("tieneObraSocial")?.value || false);
     obtenerObrasSocialesDelMedico(doctor);
   } else {
