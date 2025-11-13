@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           fila.innerHTML = `
             <td>${element.firstName} ${element.lastName}</td>
+            <td>${element.role}</td>
             <td>${element.username}</td>
             <td>
             <div class="password-container">
