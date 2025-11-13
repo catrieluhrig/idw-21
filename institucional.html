@@ -107,6 +107,7 @@
 
     logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('loginActivo');
+        sessionStorage.removeItem("role")
         window.location.reload();
     });
   </script>

@@ -93,6 +93,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/usuario.js"></script>
   <script>
+    const role = sessionStorage.getItem("role")
+    console.log(role)
+            if(role != "admin"){
+                alert("Acceso Denegado")
+                window.location.href = "login.html"
+            }
     const adminLink = document.getElementById('administracionLink');
     const usuariosLink = document.getElementById('usuariosLink');
     const loginBtn = document.getElementById('loginBtn');
