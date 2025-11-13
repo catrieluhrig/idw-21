@@ -2,12 +2,7 @@ const loginForm = document.getElementById('loginForm');
 const error = document.getElementById('errorMsg');
 
 async function login(username, password){
-    if (username === 'admin' && password === '1234') {
-        localStorage.setItem('loginActivo', 'true');
-        sessionStorage.setItem("accessToken", "admin-local-token"); 
-        window.location.href = "index.html";
-        return;
-    }
+   
 
     try{
         const res = await fetch("https://dummyjson.com/auth/login", {
@@ -20,6 +15,7 @@ async function login(username, password){
         if (res.ok) {
             localStorage.setItem('loginActivo', 'true');
             sessionStorage.setItem("accessToken", data.accessToken);
+            console.log(data)
             window.location.href = "index.html";
             return;
         }
@@ -28,6 +24,7 @@ async function login(username, password){
         error.textContent = data.message || "Usuario o Contraseña incorrectos.";
     }
     catch(err){
+        console.error(error)
         error.style.display = "block";
         error.textContent = "Error de red. Intenta más tarde."
     }
