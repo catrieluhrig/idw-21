@@ -123,13 +123,13 @@
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
 
-    if (role && role == "admin") {
+    if (role && role == "admin" || role == "moderator") {
       adminLink.classList.remove("d-none")
       usuariosLink.classList.remove('d-none');
       logoutBtn.classList.remove('d-none');
       loginBtn.classList.add("d-none")
     }
-    else if (role != "admin" && role) {
+    else if (role && role != "admin" && role != "moderator") {
       adminLink.classList.add("d-none")
       usuariosLink.classList.add('d-none');
       logoutBtn.classList.remove('d-none');
