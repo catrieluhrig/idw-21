@@ -10,5 +10,7 @@ Sergio Oscar Sieza
 Catriel Uhrig
 
 Credenciales para el login como administrador:
-user: "admin"
-password: "1234"
+Cualquier usuario de dummyjson con rol de admin
+
+Credenciales para el login como usuario:
+Cualquier usuario de dummyjson con rol de usuario
